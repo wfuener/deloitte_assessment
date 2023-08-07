@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+
+  postgres:
+    image: "postgres:15.3"
+    container_name: pg_dockerr
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_DB: challenge
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
+
+  flyway:
+    image: flyway/flyway
+    command: -url=jdbc:postgresql://pg_dockerr:5432/challenge -user=${PG_USER} -password=${PG_PASSWORD} -connectRetries=10  migrate
+    volumes:
+      - ./flyway/sql:/flyway/sql
+    depends_on:
+      - postgres

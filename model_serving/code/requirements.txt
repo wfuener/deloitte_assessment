@@ -1,0 +1,3 @@
+# this requirements folder is only read by sagemaker upon upload
+# stating the dependencies not already installed on the instance
+transformers==4.18.0
