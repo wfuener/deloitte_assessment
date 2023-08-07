@@ -37,7 +37,7 @@ Python 3.X (was developed on 3.10)
 
 A virtual environment is always a good idea when running python locally. 
 
-`python3 -m venv venv; source venv/bin/activate'`
+`python3 -m venv venv; source venv/bin/activate`
 
 Install requirements in requirements.txt. The transformers library and pytorch may have dependencies 
 not installed on your machine so if you have issues you will need to consult their documentation

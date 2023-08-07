@@ -12,7 +12,7 @@ from botocore.exceptions import ClientError
 from sagemaker.pytorch import PyTorchModel
 
 # This setup_default_session was needed when running locally but shouldn't be needed if running in the cloud
-boto3.setup_default_session(profile_name='personal', region_name='us-east-2')
+boto3.setup_default_session(region_name='us-east-2')
 sagemaker_session = sagemaker.Session(boto3.session.Session(region_name='us-east-2'))
 
 # set out constants variables
@@ -99,7 +99,7 @@ def package_model():
     The model files need to be in the root directory and code directory should have files: inference.py
     and requirements.txt
     """
-    print("Packaging and compressing model file")
+    print("Packaging and compressing model files")
 
     with tarfile.open(ZIPPED_MODEL_PATH, "w:gz") as tar:
         tar.add(CODE_PATH)

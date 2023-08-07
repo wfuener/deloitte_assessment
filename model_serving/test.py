@@ -3,7 +3,7 @@ import sagemaker
 import boto3
 import json
 
-boto3.setup_default_session(profile_name='personal', region_name='us-east-2')
+boto3.setup_default_session(region_name='us-east-2')
 sm = sagemaker.Session().sagemaker_runtime_client
 endpoint_name = "bert-base-2023-08-06-Aug-08-1691374313"
 
